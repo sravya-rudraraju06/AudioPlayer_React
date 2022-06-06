@@ -14,26 +14,25 @@ import {
 const PlayerState = (props) => {
   const initialState = {
     currentSong: 0,
-    songslist: song_list,               // list of ARRAY of songs
+    songslist: song_list,              
     repeat: false,
     random: false,
     playing: false,
     audio: null,
   }
-  const [state, dispatch] = useReducer(playerReducer, initialState) // dispatch-useREdecer to excecute to playreducer & update the state
+  const [state, dispatch] = useReducer(playerReducer, initialState) 
 
   // Set songs array
 
   const songsSet = (songArr) =>
     dispatch({ type: SET_SONGS_ARRAY, data: songArr })
 
-  // Set playing state     -> btw playing and paused state of the player  , state.playing is true it goes to false if it is false it will go to true
-  // in reducer WE have playing: action.data so keeping that playing here(state.playing)
+  // Set playing state     -
 
   const togglePlaying = () =>
     dispatch({ type: TOGGLE_PLAYING, data: state.playing ? false : true })
 
-  // Set current song   after     , so keep setcuRRENT below in PlayerCONTEXT.PROVIDER
+  // Set current song  
 
   const SetCurrent = (id) => dispatch({ type: SET_CURRENT_SONG, data: id })
 
@@ -62,11 +61,10 @@ const PlayerState = (props) => {
 
   // End of Song
   const handleEnd = () => {
-    // Check for random and repeat options
     if (state.random) {
       return dispatch({
         type: SET_CURRENT_SONG,
-        data: ~~(Math.random() * state.songs.length),     // ~~ this indicates integer,(we are going to give random no b/w the songsLength)
+        data: ~~(Math.random() * state.songs.length),     
       })
     } else {
       if (state.repeat) {
@@ -81,8 +79,7 @@ const PlayerState = (props) => {
 
   return (
     <playerContext.Provider
-      value={{   // in the value  all  the ACCESABLE state apllication is here, // PLAyerCONTExt>PRovider only we have value attribute
-        // if it not in value is dosent  accessiin the  other parts of application
+      value={{  
         currentSong: state.currentSong,
         songslist: state.songslist,
         repeat: state.repeat,
