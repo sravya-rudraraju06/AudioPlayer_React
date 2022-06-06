@@ -14,4 +14,3 @@ let Header=()=> {
 export default Header;
 
 
-// reactWave -{We need to place CURRENT PLAYING SONG HERE}
