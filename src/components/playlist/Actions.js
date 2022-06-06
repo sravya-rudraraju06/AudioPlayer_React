@@ -34,10 +34,3 @@ function Actions() {
 }
 
 export default Actions;
-
-
-// we have created 3 BUTTONS to get icons from font AWsome We used Dummy FAv 
-
-// paste img
-// so functionality of  ( get the name correct) so place ALBUM_meta
-// Span, <h1> 
