@@ -15,7 +15,7 @@ const close = () => {
 }
 
 let AudioPlayer=()=> {
-  return (                             // so wrap this with PLaYErState
+  return (                           
     <PlayerState>
       <div className="audioplayer">
         <div className="inside_content">
@@ -32,8 +32,3 @@ let AudioPlayer=()=> {
 export default AudioPlayer;
 
 
-// one is for modifying the inputs(input.css)
-// this is for whole application(input.css)
-// HEADER < ACTIONS < PLAYLIST ( this ARe the COMPONENTS )
-    // outside the Context-text DIv place CONTROLS is the more complecated of all component of them
-    // CREATE Floder called CompoNENT 
