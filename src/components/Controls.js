@@ -1,5 +1,3 @@
-// POSTIONS Are FIxed TO the BOtTOM ANd LEFT(we will get in the inspect Elements,Styles)
-
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import playerContext from '../context/playerContext'
 
@@ -20,7 +18,7 @@ let Controls=()=> {
     songslist,
   } = useContext(playerContext)
 
-  const audio = useRef('audio_tag')      // with this reference we can change the audio
+  const audio = useRef('audio_tag')      
 
   // self State
   const [statevolum, setStateVolum] = useState(0.3)
@@ -32,11 +30,11 @@ let Controls=()=> {
   }
 
   const toggleAudio = () =>
-    audio.current.paused ? audio.current.play() : audio.current.pause()        // audio is paused (play or pause, BLUe color in output)
+    audio.current.paused ? audio.current.play() : audio.current.pause()        
 
   const handleVolume = (q) => {
-    setStateVolum(q)                               // Above statevolum(this is to handle)
-    audio.current.volume = q     // so in picture at the bottom edge we can see volume button , It will cahnge the volume in audio tag
+    setStateVolum(q)                               
+    audio.current.volume = q     
   }
 
   const handleProgress = (e) => {
@@ -56,8 +54,8 @@ let Controls=()=> {
     <div className="controls">
       <audio
       
-        onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}     // onTimeUpdate-> when the player change the time grab the evnet and set current time
-        onCanPlay={(e) => setDur(e.target.duration)}     // loaded with the song (duration of song)
+        onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}     
+        onCanPlay={(e) => setDur(e.target.duration)}     
         onEnded={handleEnd}
         ref={audio}
         type="audio/mpeg"
@@ -73,7 +71,7 @@ let Controls=()=> {
           type="range"
           name="volBar"
           id="volBar"
-          onChange={(e) => handleVolume(e.target.value / 100)}              // create HANDLE volume function above
+          onChange={(e) => handleVolume(e.target.value / 100)}              
         />
       </div>
       <div className="musicControls">
@@ -84,7 +82,7 @@ let Controls=()=> {
         <span
           className="play"
           onClick={() => {
-            togglePlaying()              // above we have created const toggle audio
+            togglePlaying()              
             toggleAudio()
           }}
         >
@@ -115,7 +113,6 @@ let Controls=()=> {
           name="progresBar"
           id="prgbar"
         />
-        {/* fmtMSS used to give totalSEC, and down ONe will give nice format */}
         <span className="currentT">{fmtMSS(currentTime)}</span>   
         <span className="totalT">{fmtMSS(dur)}</span>
       </div>
@@ -125,14 +122,12 @@ let Controls=()=> {
           onClick={toggleRandom}
           className={'random ' + (random ? 'active' : '')}
         >
-          {/* RANDOM SYMBOL from FONt Awsome */}
           <i className="fas fa-random fa-lg"></i>
         </span>
         <span
           onClick={toggleRepeat}
           className={'repeat ' + (repeat ? 'active' : '')}
         >
-          {/* symnols we get it from font awsome  -> repeat symbol  */}  
           <i className="fas fa-redo-alt fa-lg"></i>        
         </span>
       </div>
